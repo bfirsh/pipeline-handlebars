@@ -6,7 +6,7 @@ class HandlebarsCompiler(SubProcessCompiler):
     output_extension = 'js'
 
     def match_file(self, filename):
-        return filename.endswith('.html')
+        return filename.endswith('.html') or filename.endswith('.hbs')
 
     def compile_file(self, infile, outfile, outdated=False, force=False):
         if not outdated and not force:
