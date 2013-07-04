@@ -1,5 +1,3 @@
-from os.path import dirname
-
 from django.conf import settings
 from pipeline.compilers import SubProcessCompiler
 
@@ -16,5 +14,5 @@ class HandlebarsCompiler(SubProcessCompiler):
             infile,
             outfile
             )
-        return self.execute_command(command, cwd=dirname(infile))
+        return self.execute_command(command)
 
