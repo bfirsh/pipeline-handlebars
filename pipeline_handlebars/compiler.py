@@ -9,6 +9,8 @@ class HandlebarsCompiler(SubProcessCompiler):
         return filename.endswith('.html')
 
     def compile_file(self, infile, outfile, outdated=False, force=False):
+        if not outdated and not force:
+            return  # File doesn't need to be recompiled
         command = "%s %s -f %s" % (
             settings.PIPELINE_HANDLEBARS_BINARY,
             infile,
